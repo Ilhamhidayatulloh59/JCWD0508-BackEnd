@@ -29,8 +29,9 @@ export class UserController {
   }
   async getUserId(req: Request, res: Response) {
     try {
-      const { id } = req.params;
-      const user = await prisma.user.findUnique({ where: { id: +id } });
+      const user = await prisma.user.findUnique({
+        where: { id: req.user?.id },
+      });
       res.status(200).send({ user });
     } catch (err) {
       console.log(err);

@@ -15,12 +15,18 @@ enum BlogCategory {
   Tech
 }
 
+enum RoleUser {
+  User
+  Admin
+}
+
 model User {
   id        Int      @id @default(autoincrement())
   username  String   @unique
   email     String   @unique
   password  String
   avatar    String?
+  role      RoleUser @default(User)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   blog      Blog[]
