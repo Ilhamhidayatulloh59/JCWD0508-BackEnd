@@ -13,6 +13,8 @@ export class BlogRouter {
 
   private initializeRoutes() {
     this.router.get("/", this.blogController.getBlogs);
+    
+    this.router.get("/:slug", this.blogController.getBlogSlug);
   }
 
   getRouter(): Router {
