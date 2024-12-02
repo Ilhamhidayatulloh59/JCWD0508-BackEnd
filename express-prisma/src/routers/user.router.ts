@@ -1,7 +1,6 @@
 import { Router } from "express";
 import { UserController } from "../controllers/user.controller";
 import { checkAdmin, verifyToken } from "../middlewares/verify";
-import { uploader } from "../middlewares/uploader";
 
 export class UserRouter {
   private userController: UserController;
@@ -16,12 +15,6 @@ export class UserRouter {
   private initializeRoutes() {
     this.router.get("/", verifyToken, checkAdmin, this.userController.getUsers);
     this.router.get("/profile", verifyToken, this.userController.getUserId);
-    this.router.patch(
-      "/avatar",
-      verifyToken,
-      uploader("memoryStorage", "avatar", "/avatar").single("file"),
-      this.userController.editAvatar
-    );
     this.router.post("/", this.userController.createUser);
 
     this.router.patch("/:id", this.userController.editUser);
