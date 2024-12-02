@@ -29,8 +29,8 @@ app.use("/api/users", userRouter.getRouter());
 app.use("/api/blogs", blogRouter.getRouter());
 app.use("/api/auth", authRouter.getRouter());
 
-app.listen(PORT, () => {
-  console.log(`server running on -> http://localhost:${PORT}/api`);
-});
+// app.listen(PORT, () => {
+//   console.log(`server running on -> http://localhost:${PORT}/api`);
+// });
 
 export default app;
