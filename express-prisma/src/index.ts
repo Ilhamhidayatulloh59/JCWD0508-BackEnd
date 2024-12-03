@@ -4,6 +4,7 @@ import { UserRouter } from "./routers/user.router";
 import { BlogRouter } from "./routers/blog.router";
 import { AuthRouter } from "./routers/auth.router";
 import cookieParser from "cookie-parser";
+import path from "path";
 
 const PORT: number = 8000;
 
@@ -20,6 +21,8 @@ app.use(cookieParser());
 app.get("/api", (req: Request, res: Response) => {
   res.status(200).send("Welcome to my API");
 });
+
+app.use("/api/public", express.static(path.join(__dirname, "../public")));
 
 const userRouter = new UserRouter();
 const blogRouter = new BlogRouter();

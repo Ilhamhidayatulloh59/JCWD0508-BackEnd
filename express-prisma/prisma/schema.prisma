@@ -29,6 +29,7 @@ model User {
   role         RoleUser @default(User)
   loginAttempt Int      @default(0)
   isSuspend    Boolean  @default(false)
+  isVerify     Boolean  @default(false)
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
   blog         Blog[]
