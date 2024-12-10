@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import prisma from "../prisma";
-import { Prisma } from "@prisma/client";
+import { Prisma } from "prisma/generated/client";
 
 export class BlogController {
   async getBlogs(req: Request, res: Response) {
