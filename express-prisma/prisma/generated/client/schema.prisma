@@ -48,7 +48,7 @@ model Blog {
   title     String       @unique
   slug      String       @unique
   category  BlogCategory
-  content   Json
+  content   String       @db.Text
   thumbnail String
   createdAt DateTime     @default(now())
   updatedAt DateTime     @updatedAt

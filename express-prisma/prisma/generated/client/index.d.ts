@@ -2205,6 +2205,7 @@ export namespace Prisma {
     title: string | null
     slug: string | null
     category: $Enums.BlogCategory | null
+    content: string | null
     thumbnail: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -2216,6 +2217,7 @@ export namespace Prisma {
     title: string | null
     slug: string | null
     category: $Enums.BlogCategory | null
+    content: string | null
     thumbnail: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -2249,6 +2251,7 @@ export namespace Prisma {
     title?: true
     slug?: true
     category?: true
+    content?: true
     thumbnail?: true
     createdAt?: true
     updatedAt?: true
@@ -2260,6 +2263,7 @@ export namespace Prisma {
     title?: true
     slug?: true
     category?: true
+    content?: true
     thumbnail?: true
     createdAt?: true
     updatedAt?: true
@@ -2370,7 +2374,7 @@ export namespace Prisma {
     title: string
     slug: string
     category: $Enums.BlogCategory
-    content: JsonValue
+    content: string
     thumbnail: string
     createdAt: Date
     updatedAt: Date
@@ -2451,7 +2455,7 @@ export namespace Prisma {
       title: string
       slug: string
       category: $Enums.BlogCategory
-      content: Prisma.JsonValue
+      content: string
       thumbnail: string
       createdAt: Date
       updatedAt: Date
@@ -2854,7 +2858,7 @@ export namespace Prisma {
     readonly title: FieldRef<"Blog", 'String'>
     readonly slug: FieldRef<"Blog", 'String'>
     readonly category: FieldRef<"Blog", 'BlogCategory'>
-    readonly content: FieldRef<"Blog", 'Json'>
+    readonly content: FieldRef<"Blog", 'String'>
     readonly thumbnail: FieldRef<"Blog", 'String'>
     readonly createdAt: FieldRef<"Blog", 'DateTime'>
     readonly updatedAt: FieldRef<"Blog", 'DateTime'>
@@ -4257,13 +4261,6 @@ export namespace Prisma {
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
-  export const JsonNullValueInput: {
-    JsonNull: typeof JsonNull
-  };
-
-  export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
-
-
   export const QueryMode: {
     default: 'default',
     insensitive: 'insensitive'
@@ -4278,15 +4275,6 @@ export namespace Prisma {
   };
 
   export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
-
-
-  export const JsonNullValueFilter: {
-    DbNull: typeof DbNull,
-    JsonNull: typeof JsonNull,
-    AnyNull: typeof AnyNull
-  };
-
-  export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
 
 
   /**
@@ -4368,13 +4356,6 @@ export namespace Prisma {
    * Reference to a field of type 'BlogCategory[]'
    */
   export type ListEnumBlogCategoryFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BlogCategory[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'Json'
-   */
-  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
     
 
 
@@ -4507,7 +4488,7 @@ export namespace Prisma {
     title?: StringFilter<"Blog"> | string
     slug?: StringFilter<"Blog"> | string
     category?: EnumBlogCategoryFilter<"Blog"> | $Enums.BlogCategory
-    content?: JsonFilter<"Blog">
+    content?: StringFilter<"Blog"> | string
     thumbnail?: StringFilter<"Blog"> | string
     createdAt?: DateTimeFilter<"Blog"> | Date | string
     updatedAt?: DateTimeFilter<"Blog"> | Date | string
@@ -4536,7 +4517,7 @@ export namespace Prisma {
     OR?: BlogWhereInput[]
     NOT?: BlogWhereInput | BlogWhereInput[]
     category?: EnumBlogCategoryFilter<"Blog"> | $Enums.BlogCategory
-    content?: JsonFilter<"Blog">
+    content?: StringFilter<"Blog"> | string
     thumbnail?: StringFilter<"Blog"> | string
     createdAt?: DateTimeFilter<"Blog"> | Date | string
     updatedAt?: DateTimeFilter<"Blog"> | Date | string
@@ -4569,7 +4550,7 @@ export namespace Prisma {
     title?: StringWithAggregatesFilter<"Blog"> | string
     slug?: StringWithAggregatesFilter<"Blog"> | string
     category?: EnumBlogCategoryWithAggregatesFilter<"Blog"> | $Enums.BlogCategory
-    content?: JsonWithAggregatesFilter<"Blog">
+    content?: StringWithAggregatesFilter<"Blog"> | string
     thumbnail?: StringWithAggregatesFilter<"Blog"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Blog"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Blog"> | Date | string
@@ -4751,7 +4732,7 @@ export namespace Prisma {
     title: string
     slug: string
     category: $Enums.BlogCategory
-    content: JsonNullValueInput | InputJsonValue
+    content: string
     thumbnail: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -4763,7 +4744,7 @@ export namespace Prisma {
     title: string
     slug: string
     category: $Enums.BlogCategory
-    content: JsonNullValueInput | InputJsonValue
+    content: string
     thumbnail: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -4775,7 +4756,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     category?: EnumBlogCategoryFieldUpdateOperationsInput | $Enums.BlogCategory
-    content?: JsonNullValueInput | InputJsonValue
+    content?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -4787,7 +4768,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     category?: EnumBlogCategoryFieldUpdateOperationsInput | $Enums.BlogCategory
-    content?: JsonNullValueInput | InputJsonValue
+    content?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -4799,7 +4780,7 @@ export namespace Prisma {
     title: string
     slug: string
     category: $Enums.BlogCategory
-    content: JsonNullValueInput | InputJsonValue
+    content: string
     thumbnail: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -4811,7 +4792,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     category?: EnumBlogCategoryFieldUpdateOperationsInput | $Enums.BlogCategory
-    content?: JsonNullValueInput | InputJsonValue
+    content?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -4822,7 +4803,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     category?: EnumBlogCategoryFieldUpdateOperationsInput | $Enums.BlogCategory
-    content?: JsonNullValueInput | InputJsonValue
+    content?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5126,28 +5107,6 @@ export namespace Prisma {
     notIn?: $Enums.BlogCategory[] | ListEnumBlogCategoryFieldRefInput<$PrismaModel>
     not?: NestedEnumBlogCategoryFilter<$PrismaModel> | $Enums.BlogCategory
   }
-  export type JsonFilter<$PrismaModel = never> = 
-    | PatchUndefined<
-        Either<Required<JsonFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonFilterBase<$PrismaModel>>, 'path'>>,
-        Required<JsonFilterBase<$PrismaModel>>
-      >
-    | OptionalFlat<Omit<Required<JsonFilterBase<$PrismaModel>>, 'path'>>
-
-  export type JsonFilterBase<$PrismaModel = never> = {
-    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    path?: string[]
-    string_contains?: string | StringFieldRefInput<$PrismaModel>
-    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
-    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
-    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-  }
 
   export type UserRelationFilter = {
     is?: UserWhereInput
@@ -5175,6 +5134,7 @@ export namespace Prisma {
     title?: SortOrder
     slug?: SortOrder
     category?: SortOrder
+    content?: SortOrder
     thumbnail?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -5186,6 +5146,7 @@ export namespace Prisma {
     title?: SortOrder
     slug?: SortOrder
     category?: SortOrder
+    content?: SortOrder
     thumbnail?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -5204,31 +5165,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumBlogCategoryFilter<$PrismaModel>
     _max?: NestedEnumBlogCategoryFilter<$PrismaModel>
-  }
-  export type JsonWithAggregatesFilter<$PrismaModel = never> = 
-    | PatchUndefined<
-        Either<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
-        Required<JsonWithAggregatesFilterBase<$PrismaModel>>
-      >
-    | OptionalFlat<Omit<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
-
-  export type JsonWithAggregatesFilterBase<$PrismaModel = never> = {
-    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    path?: string[]
-    string_contains?: string | StringFieldRefInput<$PrismaModel>
-    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
-    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
-    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedJsonFilter<$PrismaModel>
-    _max?: NestedJsonFilter<$PrismaModel>
   }
 
   export type EnumStatusOrderFilter<$PrismaModel = never> = {
@@ -5620,28 +5556,6 @@ export namespace Prisma {
     _min?: NestedEnumBlogCategoryFilter<$PrismaModel>
     _max?: NestedEnumBlogCategoryFilter<$PrismaModel>
   }
-  export type NestedJsonFilter<$PrismaModel = never> = 
-    | PatchUndefined<
-        Either<Required<NestedJsonFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>,
-        Required<NestedJsonFilterBase<$PrismaModel>>
-      >
-    | OptionalFlat<Omit<Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>
-
-  export type NestedJsonFilterBase<$PrismaModel = never> = {
-    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    path?: string[]
-    string_contains?: string | StringFieldRefInput<$PrismaModel>
-    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
-    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
-    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-  }
 
   export type NestedEnumStatusOrderFilter<$PrismaModel = never> = {
     equals?: $Enums.StatusOrder | EnumStatusOrderFieldRefInput<$PrismaModel>
@@ -5665,7 +5579,7 @@ export namespace Prisma {
     title: string
     slug: string
     category: $Enums.BlogCategory
-    content: JsonNullValueInput | InputJsonValue
+    content: string
     thumbnail: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -5676,7 +5590,7 @@ export namespace Prisma {
     title: string
     slug: string
     category: $Enums.BlogCategory
-    content: JsonNullValueInput | InputJsonValue
+    content: string
     thumbnail: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -5743,7 +5657,7 @@ export namespace Prisma {
     title?: StringFilter<"Blog"> | string
     slug?: StringFilter<"Blog"> | string
     category?: EnumBlogCategoryFilter<"Blog"> | $Enums.BlogCategory
-    content?: JsonFilter<"Blog">
+    content?: StringFilter<"Blog"> | string
     thumbnail?: StringFilter<"Blog"> | string
     createdAt?: DateTimeFilter<"Blog"> | Date | string
     updatedAt?: DateTimeFilter<"Blog"> | Date | string
@@ -5932,7 +5846,7 @@ export namespace Prisma {
     title: string
     slug: string
     category: $Enums.BlogCategory
-    content: JsonNullValueInput | InputJsonValue
+    content: string
     thumbnail: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -5952,7 +5866,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     category?: EnumBlogCategoryFieldUpdateOperationsInput | $Enums.BlogCategory
-    content?: JsonNullValueInput | InputJsonValue
+    content?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5963,7 +5877,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     category?: EnumBlogCategoryFieldUpdateOperationsInput | $Enums.BlogCategory
-    content?: JsonNullValueInput | InputJsonValue
+    content?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5974,7 +5888,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     category?: EnumBlogCategoryFieldUpdateOperationsInput | $Enums.BlogCategory
-    content?: JsonNullValueInput | InputJsonValue
+    content?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
