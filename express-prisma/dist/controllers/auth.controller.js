@@ -93,6 +93,7 @@ class AuthController {
                     .cookie("token", token, {
                     httpOnly: true,
                     maxAge: 24 * 3600 * 1000,
+                    sameSite: "none",
                     path: "/",
                     secure: process.env.NODE_ENV === "production",
                 })
