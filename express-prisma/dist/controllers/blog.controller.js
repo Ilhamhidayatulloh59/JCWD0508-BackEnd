@@ -14,6 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BlogController = void 0;
 const prisma_1 = __importDefault(require("../prisma"));
+const cloudinary_1 = require("../services/cloudinary");
 class BlogController {
     getBlogs(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -70,6 +71,32 @@ class BlogController {
                     },
                 });
                 res.status(200).send({ blog });
+            }
+            catch (err) {
+                console.log(err);
+                res.status(400).send(err);
+            }
+        });
+    }
+    createBlog(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            var _a;
+            try {
+                if (!req.file)
+                    throw { message: "thumbnail empty" };
+                const { secure_url } = yield (0, cloudinary_1.cloudinaryUpload)(req.file, "blog");
+                const { title, slug, category, content } = req.body;
+                yield prisma_1.default.blog.create({
+                    data: {
+                        title,
+                        slug,
+                        category,
+                        content,
+                        thumbnail: secure_url,
+                        userId: (_a = req.user) === null || _a === void 0 ? void 0 : _a.id,
+                    },
+                });
+                res.status(200).send({ message: "blog created" });
             }
             catch (err) {
                 console.log(err);

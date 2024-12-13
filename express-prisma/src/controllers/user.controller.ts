@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import prisma from "../prisma";
 import { cloudinaryUpload } from "../services/cloudinary";
-import { Prisma } from "prisma/generated/client";
+import { Prisma } from "../../prisma/generated/client";
 
 export class UserController {
   async getUsers(req: Request, res: Response) {

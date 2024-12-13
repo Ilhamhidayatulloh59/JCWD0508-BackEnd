@@ -26,7 +26,7 @@ export class AuthController {
 
       const payload = { id: newUser.id, role: newUser.role };
       const token = sign(payload, process.env.JWT_KEY!, { expiresIn: "10m" });
-      const link = `http://localhost:3000/verify/${token}`;
+      const link = `${process.env.BASE_URL_FE}/verify/${token}`;
 
       const templatePath = path.join(__dirname, "../templates", "verify.hbs");
       const templateSource = fs.readFileSync(templatePath, "utf-8");

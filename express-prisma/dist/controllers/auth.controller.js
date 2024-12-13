@@ -38,7 +38,7 @@ class AuthController {
                 });
                 const payload = { id: newUser.id, role: newUser.role };
                 const token = (0, jsonwebtoken_1.sign)(payload, process.env.JWT_KEY, { expiresIn: "10m" });
-                const link = `http://localhost:3000/verify/${token}`;
+                const link = `${process.env.BASE_URL_FE}/verify/${token}`;
                 const templatePath = path_1.default.join(__dirname, "../templates", "verify.hbs");
                 const templateSource = fs_1.default.readFileSync(templatePath, "utf-8");
                 const compiledTemplate = handlebars_1.default.compile(templateSource);

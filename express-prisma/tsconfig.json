@@ -8,11 +8,8 @@
     "forceConsistentCasingInFileNames": true,
     "outDir": "./dist",
     "baseUrl": ".",
-    // "paths": {
-    //   "@/*": ["./src/*"]
-    // }
+    "types": ["./src/custom.d.ts"],
   },
-  // "include": ["src/**/*"],
   "include": ["**/*.ts"],
   "exclude": ["node_modules"]
 }
