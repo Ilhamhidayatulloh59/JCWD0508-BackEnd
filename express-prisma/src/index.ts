@@ -12,7 +12,7 @@ const PORT: number = 8000;
 
 const allowedOrigins: string[] = [
   "https://blogger-fe.vercel.app",
-  "http://localhost:8000",
+  "http://localhost:3000",
 ];
 
 const corsOptions: CorsOptions = {
