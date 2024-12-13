@@ -82,7 +82,7 @@ export class AuthController {
         .status(200)
         .cookie("token", token, {
           httpOnly: true,
-          secure: process.env.NODE_ENV === "production",
+          // secure: process.env.NODE_ENV === "production",
           sameSite: "strict",
           maxAge: 24 * 3600 * 1000,
           path: "/",
