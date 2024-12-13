@@ -1,5 +1,5 @@
 import express, { Application, Request, Response } from "express";
-import cors from "cors";
+import cors, { CorsOptions } from "cors";
 import { UserRouter } from "./routers/user.router";
 import { BlogRouter } from "./routers/blog.router";
 import { AuthRouter } from "./routers/auth.router";
@@ -10,14 +10,25 @@ import { OrderRouter } from "./routers/order.router";
 
 const PORT: number = 8000;
 
+const allowedOrigins: string[] = [
+  "https://blogger-fe.vercel.app",
+  "http://localhost:8000",
+];
+
+const corsOptions: CorsOptions = {
+  origin: (origin: string | undefined, callback: (err: Error | null, allow: boolean) => void) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"), false);
+    }
+  },
+  credentials: true,
+};
+
 const app: Application = express();
 app.use(express.json());
-app.use(
-  cors({
-    origin: process.env.BASE_URL_FE,
-    credentials: true,
-  })
-);
+app.use(cors(corsOptions));
 app.use(cookieParser());
 
 app.get("/api", (req: Request, res: Response) => {
