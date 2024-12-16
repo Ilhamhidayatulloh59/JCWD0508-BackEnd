@@ -82,7 +82,7 @@ export class AuthController {
         .status(200)
         .cookie("token", token, {
           httpOnly: true,
-          secure: true,
+          // secure: true,
           sameSite: "none",
           maxAge: 24 * 3600 * 1000,
           path: "/",
