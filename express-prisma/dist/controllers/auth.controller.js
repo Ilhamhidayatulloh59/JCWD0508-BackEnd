@@ -96,10 +96,11 @@ class AuthController {
                     sameSite: "none",
                     maxAge: 24 * 3600 * 1000,
                     path: "/",
+                    domain: ".vercel.app",
                 })
                     .send({
                     message: "Login Sucessfully ✅",
-                    user
+                    user,
                 });
             }
             catch (err) {
