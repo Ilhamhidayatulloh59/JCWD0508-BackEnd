@@ -92,6 +92,7 @@ export class AuthController {
         .send({
           message: "Login Sucessfully ✅",
           user,
+          token
         });
     } catch (err) {
       console.log(err);
