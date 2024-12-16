@@ -90,12 +90,14 @@ class AuthController {
                 const token = (0, jsonwebtoken_1.sign)(payload, process.env.JWT_KEY, { expiresIn: "1d" });
                 res
                     .status(200)
+                    .setHeader("Cache-Control", "no-store")
                     .cookie("token", token, {
                     httpOnly: true,
-                    maxAge: 24 * 3600 * 1000,
+                    secure: true,
                     sameSite: "none",
+                    maxAge: 24 * 3600 * 1000,
                     path: "/",
-                    secure: process.env.NODE_ENV === "production",
+                    domain: "blogger-fe.vercel.app",
                 })
                     .send({
                     message: "Login Sucessfully ✅",
