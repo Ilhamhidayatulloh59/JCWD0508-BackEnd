@@ -90,7 +90,7 @@ class AuthController {
                 const token = (0, jsonwebtoken_1.sign)(payload, process.env.JWT_KEY, { expiresIn: "1d" });
                 res
                     .status(200)
-                    .cookie("token", token, {
+                    .cookie("access-token", token, {
                     httpOnly: true,
                     secure: true,
                     sameSite: "none",
