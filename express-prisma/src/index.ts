@@ -1,4 +1,4 @@
-import express, { Application, NextFunction, Request, Response } from "express";
+import express, { Application, Request, Response } from "express";
 import cors from "cors";
 import { UserRouter } from "./routers/user.router";
 import { BlogRouter } from "./routers/blog.router";
@@ -17,14 +17,10 @@ app.use(
   cors({
     origin: process.env.BASE_URL_FE,
     credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
   })
 );
 app.use(cookieParser());
-app.use((req: Request, res: Response, next: NextFunction) => {
-  res.setHeader("Cache-Control", "no-store");
-  next();
-});
 
 app.get("/api", (req: Request, res: Response) => {
   res.status(200).send("Welcome to my API");
