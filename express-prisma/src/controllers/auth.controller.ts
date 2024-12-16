@@ -81,14 +81,14 @@ export class AuthController {
       res
         .status(200)
         .setHeader("Cache-Control", "no-store")
-        .cookie("token", token, {
-          httpOnly: true,
-          secure: true,
-          sameSite: "none",
-          maxAge: 24 * 3600 * 1000,
-          path: "/",
-          domain: "blogger-fe.vercel.app",
-        })
+        // .cookie("token", token, {
+        //   httpOnly: true,
+        //   secure: true,
+        //   sameSite: "none",
+        //   maxAge: 24 * 3600 * 1000,
+        //   path: "/",
+        //   domain: "blogger-fe.vercel.app",
+        // })
         .send({
           message: "Login Sucessfully ✅",
           user,
