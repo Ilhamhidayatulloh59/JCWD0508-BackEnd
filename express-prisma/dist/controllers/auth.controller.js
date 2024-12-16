@@ -93,7 +93,7 @@ class AuthController {
                     .cookie("token", token, {
                     httpOnly: true,
                     secure: true,
-                    sameSite: "strict",
+                    sameSite: "lax",
                     maxAge: 24 * 3600 * 1000,
                     path: "/",
                 })
