@@ -97,6 +97,7 @@ class AuthController {
                     sameSite: "none",
                     maxAge: 24 * 3600 * 1000,
                     path: "/",
+                    domain: "blogger-fe.vercel.app/",
                 })
                     .send({
                     message: "Login Sucessfully ✅",
