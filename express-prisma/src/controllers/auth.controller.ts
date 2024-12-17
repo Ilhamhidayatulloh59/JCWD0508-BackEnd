@@ -80,6 +80,7 @@ export class AuthController {
 
       res
         .status(200)
+        .setHeader("x-vercel-set-bypass-cookie", "samesitenone")
         .cookie("token", token, {
           httpOnly: true,
           secure: true,

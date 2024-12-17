@@ -90,6 +90,7 @@ class AuthController {
                 const token = (0, jsonwebtoken_1.sign)(payload, process.env.JWT_KEY, { expiresIn: "1d" });
                 res
                     .status(200)
+                    .setHeader("x-vercel-set-bypass-cookie", "samesitenone")
                     .cookie("token", token, {
                     httpOnly: true,
                     secure: true,
