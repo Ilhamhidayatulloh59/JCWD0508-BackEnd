@@ -78,21 +78,11 @@ export class AuthController {
       const payload = { id: user.id, role: user.role };
       const token = sign(payload, process.env.JWT_KEY!, { expiresIn: "1d" });
 
-      res
-        .status(200)
-        .setHeader("x-vercel-set-bypass-cookie", "samesitenone")
-        .cookie("token", token, {
-          httpOnly: true,
-          secure: true,
-          sameSite: "none",
-          maxAge: 24 * 3600 * 1000,
-          path: "/",
-          domain: "blogger-fe.vercel.app",
-        })
-        .send({
-          message: "Login Sucessfully ✅",
-          user,
-        });
+      res.status(200).send({
+        message: "Login Sucessfully ✅",
+        user,
+        token,
+      });
     } catch (err) {
       console.log(err);
       res.status(400).send(err);

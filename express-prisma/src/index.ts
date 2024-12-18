@@ -40,11 +40,6 @@ app.use("/api/auth", authRouter.getRouter());
 // app.use("/api/posts", postRouter.getRouter());
 app.use("/api/orders", orderRouter.getRouter());
 
-console.log(process.env.NODE_ENV === "production");
-console.log(process.env.BASE_URL_FE);
-console.log(process.env.DATABASE_URL)
-console.log(process.env.DIRECT_URL)
-
 app.listen(PORT, () => {
   console.log(`server running on -> http://localhost:${PORT}/api`);
 });

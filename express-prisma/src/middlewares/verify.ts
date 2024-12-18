@@ -8,8 +8,8 @@ export const verifyToken = async (
   next: NextFunction
 ) => {
   try {
-    // const token = req.header("Authorization")?.replace("Bearer ", "");
-    const token = req.cookies?.token;
+    const token = req.header("Authorization")?.replace("Bearer ", "");
+    // const token = req.cookies?.token;
     if (!token) throw { message: "Unauthorize!" };
 
     const verifiedUser = verify(token, process.env.JWT_KEY!);
